@@ -1,2 +1,0 @@
-# primeiros-scripts
-process automation
