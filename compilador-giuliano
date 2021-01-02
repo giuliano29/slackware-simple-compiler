@@ -1,0 +1,29 @@
+#!/bin/bash
+echo "Qual é o nome principal do pacote?"
+read nome_pacote
+echo "Qual o Url do pacote de instalação?"
+read link_arquivo
+echo "Qual o Url do pacote source?"
+read link_source
+##====================================================================//
+mkdir $HOME/slackbuild
+wget $link_arquivo -P $HOME/slackbuild
+cd $HOME/slackbuild
+tar -xf $nome_pacote.tar.gz
+rm $nome_pacote.tar.gz
+wget $link_source -P $HOME/slackbuild/$nome_pacote/
+cd $nome_pacote
+./$nome_pacote.SlackBuild
+touch  $HOME/slackbuild/downloads.txt
+##====================================================================//
+echo "$nome_pacote" >> $HOME/slackbuild/downloads.txt
+echo "O pacote esta pronto para ser instalado :D"
+
+
+
+
+
+
+
+
+
